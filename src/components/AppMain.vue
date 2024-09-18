@@ -17,7 +17,7 @@ import MainCardList from './MainCardList.vue';
     <section id="catalog" class="container">
         <div class="catalog-cards-bg">
             <div>
-                <p class="text-white fw-bold fs-3 py-3 px-4 m-0">
+                <p class="text-white fw-bold fs-3 py-3 m-0">
                     Number of cards: 20
                 </p>
             </div>
@@ -30,6 +30,7 @@ import MainCardList from './MainCardList.vue';
 <style lang="scss" scoped>
     .catalog-cards-bg {
         background-color: #212429;
+        padding: 0 30px;
         border: 5px solid red;
         box-shadow: 0 0 20px red;
         border-radius: 20px;
