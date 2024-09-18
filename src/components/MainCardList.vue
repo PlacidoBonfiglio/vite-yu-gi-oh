@@ -38,8 +38,8 @@ import axios from 'axios';
 </script>
 
 <template>
-    <div class="row row-cols-lg-5 row-cols-md-3 row-cols-2 m-0">
-        <div class="col gy-4">
+    <div class="">
+        <div class="row row-cols-lg-6 row-cols-md-4 row-cols-3 gap-5 justify-content-center">
             <MainCardListItem v-for="yugiCard in yugiCards" :key="yugiCard.id" :yugiCardObject="yugiCard" />
         </div>
     </div>

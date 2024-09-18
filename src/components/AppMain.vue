@@ -18,7 +18,7 @@ import MainCardList from './MainCardList.vue';
         <div class="catalog-cards-bg">
             <div>
                 <p class="text-white fw-bold fs-3 py-3 px-4 m-0">
-                    Number of cards:
+                    Number of cards: 20
                 </p>
             </div>
 
