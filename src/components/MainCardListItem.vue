@@ -5,14 +5,21 @@
                 
             }
         },
+        props: {
+            yugiCardObject: {
+                type: Object,
+                required: true,
+            }
+        },
     }
 </script>
 
 <template>
     <article class="card p-0">
-        <img src="..." class="card-img-top" alt="...">
+        <img :src="yugiCardObject.card_images[0].image_url" class="card-img-top" alt="...">
         <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">{{ yugiCardObject.name }}</p>
+            <p class="card-text">{{ yugiCardObject.archetype }}</p>
         </div>
     </article>
 </template>
