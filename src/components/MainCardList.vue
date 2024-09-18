@@ -2,11 +2,17 @@
 import MainCardListItem from './MainCardListItem.vue';
 import axios from 'axios';
 
+// importo store js
+import {store} from '../store.js';
+
     export default {
         data() {
             return {
-              yugiCards: [],
-              apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0'  
+              //yugiCards: [],
+              apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+              
+              // inserisco store tra i miei data
+              store,
             }
         },
 
@@ -17,7 +23,7 @@ import axios from 'axios';
                 // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
                 .then((response) => {
                     console.log(response.data.data);
-                    this.yugiCards = response.data.data;
+                    store.yugiCards = response.data.data;
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -38,10 +44,8 @@ import axios from 'axios';
 </script>
 
 <template>
-    <div class="">
-        <div class="row row-cols-lg-6 row-cols-md-4 row-cols-3 gap-5 justify-content-center">
-            <MainCardListItem v-for="yugiCard in yugiCards" :key="yugiCard.id" :yugiCardObject="yugiCard" />
-        </div>
+    <div class="row row-cols-lg-6 row-cols-md-4 row-cols-3 gap-5 justify-content-center">
+        <MainCardListItem v-for="yugiCard in store.yugiCards" :key="yugiCard.id" :yugiCardObject="yugiCard" />
     </div>
 </template>
 

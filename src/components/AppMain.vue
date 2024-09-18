@@ -1,5 +1,6 @@
 <script>
 import MainCardList from './MainCardList.vue';
+import MainMessage from './MainMessage.vue';
 
     export default {
         data() {
@@ -8,7 +9,8 @@ import MainCardList from './MainCardList.vue';
             }
         },
         components: {
-            MainCardList
+            MainCardList,
+            MainMessage
         }
     }
 </script>
@@ -16,11 +18,7 @@ import MainCardList from './MainCardList.vue';
 <template>
     <section id="catalog" class="container">
         <div class="catalog-cards-bg">
-            <div>
-                <p class="text-white fw-bold fs-3 py-3 m-0">
-                    Number of cards: 20
-                </p>
-            </div>
+            <MainMessage/>
 
             <MainCardList/>
         </div>
@@ -32,9 +30,9 @@ import MainCardList from './MainCardList.vue';
         background-color: #212429;
         padding: 0 30px;
         border: 5px solid red;
-        box-shadow: 0 0 20px red;
+        box-shadow: 0 0 30px red;
         border-radius: 20px;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
         margin-bottom: 80px;
     }
 
