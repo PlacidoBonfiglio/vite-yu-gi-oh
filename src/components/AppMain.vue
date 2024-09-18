@@ -2,10 +2,12 @@
 import MainCardList from './MainCardList.vue';
 import MainMessage from './MainMessage.vue';
 
+import {store} from '../store.js';
+
     export default {
         data() {
             return {
-                
+                store,
             }
         },
         components: {
@@ -16,16 +18,22 @@ import MainMessage from './MainMessage.vue';
 </script>
 
 <template>
-    <section id="catalog" class="container">
-        <div class="catalog-cards-bg">
-            <MainMessage/>
+    <main>
+        <section id="catalog" class="container">
+            <div class="catalog-cards-bg">
+                <MainMessage/>
 
-            <MainCardList/>
-        </div>
-    </section>
+                <MainCardList/>
+            </div>
+        </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>
+    div-loader {
+        height: 100%;
+    }
+
     .catalog-cards-bg {
         background-color: #212429;
         padding: 0 30px;
@@ -35,5 +43,4 @@ import MainMessage from './MainMessage.vue';
         padding-bottom: 30px;
         margin-bottom: 80px;
     }
-
 </style>

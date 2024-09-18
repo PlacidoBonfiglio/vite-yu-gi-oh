@@ -1,6 +1,7 @@
 <script>
 import MainCardListItem from './MainCardListItem.vue';
 import axios from 'axios';
+import MainLoader from './MainLoader.vue';
 
 // importo store js
 import {store} from '../store.js';
@@ -8,11 +9,11 @@ import {store} from '../store.js';
     export default {
         data() {
             return {
-              //yugiCards: [],
-              apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+                //yugiCards: [],
+                apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
               
-              // inserisco store tra i miei data
-              store,
+                // inserisco store tra i miei data
+                store,
             }
         },
 
@@ -32,19 +33,22 @@ import {store} from '../store.js';
         },
 
         components: {
-            MainCardListItem
+            MainCardListItem,
+            MainLoader
         },
 
         // Creo un hook per chiamare il metodo
         mounted() {
-            this.getYugiCards()
+            setTimeout(this.getYugiCards, 3000)
         }
     }
 
 </script>
 
 <template>
-    <div class="row row-cols-lg-6 row-cols-md-4 row-cols-3 gap-5 justify-content-center">
+    <MainLoader v-if="store.yugiCards.length === 0"/>
+
+    <div class="row row-cols-lg-6 row-cols-md-4 row-cols-3 gap-5 justify-content-center" v-else>
         <MainCardListItem v-for="yugiCard in store.yugiCards" :key="yugiCard.id" :yugiCardObject="yugiCard" />
     </div>
 </template>

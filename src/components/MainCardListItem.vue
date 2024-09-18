@@ -26,7 +26,7 @@
 
 <style lang="scss" scoped>
     .card {
-        box-shadow: 0 0 8px white;
+        box-shadow: 0 0 5px white;
 
         p:first-child {
             font-size: 1.2rem;
