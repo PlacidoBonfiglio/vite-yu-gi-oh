@@ -30,8 +30,11 @@ import MainCardList from './MainCardList.vue';
 <style lang="scss" scoped>
     .catalog-cards-bg {
         background-color: #212429;
+        border: 5px solid red;
+        box-shadow: 0 0 20px red;
         border-radius: 20px;
         padding-bottom: 50px;
+        margin-bottom: 80px;
     }
 
 </style>
