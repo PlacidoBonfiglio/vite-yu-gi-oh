@@ -1,8 +1,8 @@
 <script>
+import axios from 'axios';
 import MainCardList from './MainCardList.vue';
 import MainMessage from './MainMessage.vue';
 import MainSelect from './MainSelect.vue';
-import axios from 'axios';
 
 import {store} from '../store.js';
 
@@ -25,7 +25,8 @@ import {store} from '../store.js';
                 axios.get(this.apiUrl, {
                     params: {
                         num: 20,
-                        offset: 0
+                        offset: 0,
+                        archetype: 'alien'
                     }
                 })
                 // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
@@ -49,7 +50,7 @@ import {store} from '../store.js';
     <main>
         <section id="catalog" class="container">
 
-            <MainSelect/>
+            <MainSelect @selectArchetype="console.log('selezionando un archetipo')"/>
 
             <div class="catalog-cards-bg">
                 <MainMessage/>
