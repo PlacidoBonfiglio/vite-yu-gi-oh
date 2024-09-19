@@ -2,6 +2,7 @@
 import MainCardList from './MainCardList.vue';
 import MainMessage from './MainMessage.vue';
 import MainSelect from './MainSelect.vue';
+import axios from 'axios';
 
 import {store} from '../store.js';
 
@@ -9,12 +10,32 @@ import {store} from '../store.js';
         data() {
             return {
                 store,
+                //yugiCards: [],
+                apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
             }
         },
         components: {
             MainCardList,
             MainMessage,
             MainSelect
+        },
+        methods: {
+            //Chiamo Api con un metodo
+            getYugiCards() {
+                axios.get(this.apiUrl)
+                // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
+                .then((response) => {
+                    console.log(response.data.data);
+                    store.yugiCards = response.data.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        },
+        // Creo un hook per chiamare il metodo
+        mounted() {
+            setTimeout(this.getYugiCards, 3000)
         }
     }
 </script>
