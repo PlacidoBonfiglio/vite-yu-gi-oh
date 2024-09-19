@@ -4,12 +4,22 @@ export default {
         return {
             selectedArchetype: "Alien",
         }
-    }
+    },
+
+    
+    methods: {
+        getArchetype(value) {
+            this.$emit('actualArchetype', value);
+            console.log(value)
+        }
+    },
+
+
 }
 </script>
 
 <template>
-    <select class="form-select w-25 mb-5" aria-label="Default select example" v-model='selectedArchetype' @change="$emit('selectArchetype')">
+    <select class="form-select w-25 mb-5" aria-label="Default select example" v-model='selectedArchetype' @change="getArchetype(value)">
         <option selected value="Alien">Alien</option>
         <option value="Anfernoble Arms">Infernoble Arms</option>
         <option value="Noble Knight">Noble Knight</option>

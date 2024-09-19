@@ -37,8 +37,15 @@ import {store} from '../store.js';
                 .catch(function (error) {
                     console.log(error);
                 });
-            }
+            },
+
+            // Metodo archetypes
+            getNewArchetype(archetypeValue) {
+                console.log(archetypeValue)
+            },
         },
+        
+
         // Creo un hook per chiamare il metodo
         mounted() {
             setTimeout(this.getYugiCards, 3000)
@@ -50,7 +57,7 @@ import {store} from '../store.js';
     <main>
         <section id="catalog" class="container">
 
-            <MainSelect @selectArchetype="console.log('selezionando un archetipo')"/>
+            <MainSelect @actualArchetype="getNewArchetype"/>
 
             <div class="catalog-cards-bg">
                 <MainMessage/>
