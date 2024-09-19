@@ -11,7 +11,7 @@ import {store} from '../store.js';
             return {
                 store,
                 //yugiCards: [],
-                apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+                apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php/',
             }
         },
         components: {
@@ -22,7 +22,12 @@ import {store} from '../store.js';
         methods: {
             //Chiamo Api con un metodo
             getYugiCards() {
-                axios.get(this.apiUrl)
+                axios.get(this.apiUrl, {
+                    params: {
+                        num: 20,
+                        offset: 0
+                    }
+                })
                 // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
                 .then((response) => {
                     console.log(response.data.data);
