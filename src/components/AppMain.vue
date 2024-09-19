@@ -1,6 +1,7 @@
 <script>
 import MainCardList from './MainCardList.vue';
 import MainMessage from './MainMessage.vue';
+import MainSelect from './MainSelect.vue';
 
 import {store} from '../store.js';
 
@@ -12,7 +13,8 @@ import {store} from '../store.js';
         },
         components: {
             MainCardList,
-            MainMessage
+            MainMessage,
+            MainSelect
         }
     }
 </script>
@@ -20,6 +22,9 @@ import {store} from '../store.js';
 <template>
     <main>
         <section id="catalog" class="container">
+
+            <MainSelect/>
+
             <div class="catalog-cards-bg">
                 <MainMessage/>
 
