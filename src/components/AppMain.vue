@@ -21,7 +21,7 @@ import {store} from '../store.js';
         },
         methods: {
             //Chiamo Api con un metodo
-            getYugiCards( archetypeFilter = null ) {
+            getYugiCards( archetypeFilter = null) {
                 axios.get(this.apiUrl, {
                     params: {
                         num: 20,

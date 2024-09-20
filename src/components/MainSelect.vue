@@ -6,18 +6,13 @@ export default {
         return {
             archetypesList: [],
             selectedItem: '',
-            apiArchetypeUrl: 'https://db.ygoprodeck.com/api/v7/archetypes.php',
+            apiArchetypesUrl: 'https://db.ygoprodeck.com/api/v7/archetypes.php',
         }
     },
 
     methods: {
-        getArchetype(message) {
-            this.$emit('actualArchetype', message);
-            //console.log(value)
-        },
-
         getAllArchetypes() {
-            axios.get(this.apiArchetypeUrl)
+            axios.get(this.apiArchetypesUrl)
             
             .then((response) => {
                 console.log(response.data);
@@ -27,6 +22,12 @@ export default {
                 console.log(error);
             });
         },
+
+        getArchetype(message) {
+            console.log(`chiamato con ${message}`)
+            this.$emit('actualArchetype', message);
+        },
+
     },
     created() {
         this.getAllArchetypes();
@@ -37,7 +38,10 @@ export default {
 
 <template>
     <select class="form-select w-25 mb-5" v-model='selectedItem' @change="getArchetype(selectedItem)">
-        <option v-for="(archetype, index) in archetypesList" :key="index" value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
+        <option v-for="(archetype, index) in archetypesList" 
+            :key="index" 
+            :value="archetype.archetype_name">{{ archetype.archetype_name }}
+        </option>
     </select>
 </template>
 
