@@ -45,6 +45,5 @@ export default {
     </select>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
 </style>

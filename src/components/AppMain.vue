@@ -21,10 +21,10 @@ import {store} from '../store.js';
         },
         methods: {
             //Chiamo Api con un metodo
-            getYugiCards( archetypeFilter = null) {
+            getYugiCards( archetypeFilter = null ) {
                 axios.get(this.apiUrl, {
                     params: {
-                        num: 20,
+                        num: 50,
                         offset: 0,
                         archetype: archetypeFilter
                     }
@@ -47,7 +47,7 @@ import {store} from '../store.js';
 
         // Creo un hook per chiamare il metodo
         mounted() {
-            setTimeout(this.getYugiCards, 10)
+            setTimeout(this.getYugiCards, 3000)
         }
     }
 </script>
@@ -55,6 +55,8 @@ import {store} from '../store.js';
 <template>
     <main>
         <section id="catalog" class="container">
+
+            <label class="mb-3 text-white fw-bold">select an archetype</label>
 
             <MainSelect @actualArchetype="getNewArchetype"/>
 
@@ -68,8 +70,8 @@ import {store} from '../store.js';
 </template>
 
 <style lang="scss" scoped>
-    div-loader {
-        height: 100%;
+    label {
+        text-shadow: 0 0 4px black;
     }
 
     .catalog-cards-bg {
