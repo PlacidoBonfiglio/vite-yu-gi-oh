@@ -21,12 +21,12 @@ import {store} from '../store.js';
         },
         methods: {
             //Chiamo Api con un metodo
-            getYugiCards() {
+            getYugiCards( archetypeFilter = null ) {
                 axios.get(this.apiUrl, {
                     params: {
                         num: 20,
                         offset: 0,
-                        archetype: 'alien'
+                        archetype: archetypeFilter
                     }
                 })
                 // Per sovrascrivere un dato e usare il this ho bisogno di un arrow function 
@@ -40,15 +40,14 @@ import {store} from '../store.js';
             },
 
             // Metodo archetypes
-            getNewArchetype(archetypeValue) {
-                console.log(archetypeValue)
+            getNewArchetype(info) {
+                this.getYugiCards(info)
             },
         },
-        
 
         // Creo un hook per chiamare il metodo
         mounted() {
-            setTimeout(this.getYugiCards, 3000)
+            setTimeout(this.getYugiCards, 10)
         }
     }
 </script>
